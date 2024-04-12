@@ -1,0 +1,44 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n;
+        cin >> n;
+        vector<int> arr(n);
+        for (int i = 0; i < n; i++)
+        {
+            cin >> arr[i];
+        }
+
+        vector<int> v;
+        int count = 0;
+        // this the beautiful element i.e end element of both the side bcs of that the array is beautiful
+        for (int i = 0; i < n; i++)
+        {
+            if (arr[i] == arr[0])
+                count++;
+            else
+            {
+                v.push_back(count);
+                count = 0;
+            }
+        }
+    
+        // to insert the last consecutive element
+        if(count > 0)
+            v.push_back(count);
+        // to handle the all the same element in the array
+        if(v.size() == 1)
+            cout<<-1<<endl;
+        else
+            cout << *min_element(v.begin(), v.end()) << endl;
+    }
+    return 0;
+}
