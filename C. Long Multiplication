@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        string a,b;
+        cin>>a;
+        cin>>b;
+        int n = a.length();
+        string fa="", fb="";
+        for(int i =0  ; i<n ;i++){
+            char ca = a[i];
+            char cb = b[i];
+            char mx = max(ca, cb);
+            char mn = min(ca, cb);
+            // if fa is maximum i.e fa >= fb then add min element to fa
+            // else add max element to fb
+
+        // jo chota hai usme max element add karo 
+        // jo bada hai usme min element add karo
+            if(fa >= fb){
+                fa += mn;
+                fb += mx;
+            }
+            else
+            {
+                fa += mx;
+                fb += mn;
+            }
+        }
+         
+        cout<<fb<<endl<<fa<<endl;
+    }
+    return 0;
+}
