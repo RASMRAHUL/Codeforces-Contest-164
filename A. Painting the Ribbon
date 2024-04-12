@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n, m, k;
+        cin>>n>>m>>k;
+        
+
+        if(m == 1)
+            cout<<"NO"<<endl;
+        else {
+            // to calculate the maximum number of ribbons of same color i.e. ceil value of n/m
+            int x = (n+(m-1))/m;  // for calculating ceil value...
+            // atleast k must be or greater than n-x bcs then only all ribbon will be of same color
+            // or bob will paint with the same color
+            x = n-x; 
+            if( k >= x)
+                cout<<"NO"<<endl;  // this is no bcs of alice want to different color...bob can make all ribbons of same color
+            else    
+                cout<<"YES"<<endl;
+        }
+            
+    }
+    return 0;
+}
