@@ -1,2 +1,2 @@
-#This is the section of Contest of Codeforces 
-#All Contest Solutions will be here only.
+#Solutions of all Contests of Codeforces 
+All Contest Solutions will be here only.
