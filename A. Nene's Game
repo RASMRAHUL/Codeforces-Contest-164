@@ -1,0 +1,74 @@
+//This is my solutions in the contest .....
+
+#include <iostream>
+#include <vector>
+#include <algorithm> // max_element
+#include <numeric> // Accumulate
+using namespace std;
+
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int k, q;
+        cin>>k>>q;
+        vector<int> arrk(k);
+        vector<int> arrq(q);
+        for(int i = 0 ;i<k ;i++){
+            cin>>arrk[i];
+        }
+        for(int i = 0 ;i<q ;i++){
+            cin>>arrq[i];
+        }
+        int iq = 0;
+        while(iq <q){
+            for(int i = k-1 ;i >=0 ;i--){
+                while(arrk[i] <= arrq[iq])
+                    arrq[iq]--;
+                
+                
+            }
+            cout<<arrq[iq]<<" ";
+
+            iq++;
+        }
+
+        cout<<endl;
+        
+    }
+    return 0;
+}
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// This is the optimal approaches...
+
+#include <iostream>
+#include <vector>
+#include <algorithm> // max_element
+#include <numeric> // Accumulate
+using namespace std;
+
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int k, q;
+        cin>>k>>q;
+        vector<int> arrk(k);
+        for(int i = 0 ;i< k ;i++)
+            cin>>arrk[i];
+        
+        for(int i = 0 ;i<q ; i++){
+            int iq;
+           cin>> iq;
+           cout<<min(iq, arrk[0]-1)<<" " ;
+        }
+        cout<<endl;
+    }
+    return 0;
+}
