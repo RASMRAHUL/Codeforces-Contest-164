@@ -1,0 +1,96 @@
+// This is completely based on observations
+// First , if all the boundary col and row contains any of the color either white or black then its possible to do the same color.
+// check for the boundary color for both of the color so that we can either do black or white.
+
+
+#include<iostream>
+#include<vector>
+#include<string>
+#include<limits>
+#include<stack>
+#include<unordered_map>
+#include<map>
+#include<unordered_set>
+#include<set>
+#include<algorithm>
+
+using namespace std;
+
+bool check(int n, int m, vector<vector<char>> &grid, char c){
+    bool possible = false;
+
+    // checking in first col
+    for(int i = 0 ;i< n; i++){
+        if(grid[i][0] == c )
+        {
+            possible = true;
+            break;
+        }
+             
+    }
+    if(!possible) return false;
+    possible = false;
+
+    // checking in last col
+    for(int i = 0 ;i< n; i++){
+        if(grid[i][m-1] == c )
+        {
+            possible = true;
+            break;
+        }
+             
+    }
+    if(!possible) return false;
+    possible = false;
+
+    // checking in first row
+    for(int i = 0 ;i< m; i++){
+        if(grid[0][i] == c )
+        {
+            possible = true;
+            break;
+        }
+             
+    }
+    if(!possible) return false;
+    possible = false;
+
+    // checking in last row
+    for(int i = 0 ;i< m; i++){
+        if(grid[n-1][i] == c )
+        {
+            possible = true;
+            break;
+        }
+             
+    }
+    if(!possible) return false;
+    
+
+    return true;
+}
+
+void solve(){
+  int n,m;
+  cin>>n>>m;
+  vector<vector<char>> grid(n, vector<char>(m));
+  for(int i = 0 ; i< n ;i++){
+    for(int j = 0 ;j< m ;j++){
+        cin>>grid[i][j];
+    }
+  }
+
+  bool checkGrid = check(n, m, grid, 'W') || check(n, m, grid, 'B');
+    if(checkGrid)
+        cout<<"YES"<<endl;
+    else
+        cout<<"NO"<<endl;
+}
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        solve();
+    }
+}
