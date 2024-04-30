@@ -1,0 +1,38 @@
+// there are four possiblities of the coins
+// AFTER APPLY OPERATIONS
+// UUU -> DD  -> no. of U becomes 0   
+// DUD -> UU  -> no. of U becomes 2
+// UUD -> DU  -> no. of U becomes 1
+// DUU -> UD  -> no. of U becomes 
+
+// i.e. the no. of U will be even then BOB will win 
+// else (for) odd case Alice will win.
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void solve(){
+    long long int n;
+    cin>>n;
+    string s;
+    cin>>s;
+    long long int count = 0;
+    for(int i = 0 ;i< n; i++){
+        if(s[i] == 'U')
+            count++;
+    }
+    if(count %2 == 1)
+        cout<<"YES"<<endl;
+    else
+        cout<<"NO"<<endl;
+}
+
+int main(){
+    
+    int t;
+    cin>>t;
+    while(t--){
+        solve();
+    }
+}
