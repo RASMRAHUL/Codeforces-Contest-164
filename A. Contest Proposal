@@ -1,0 +1,40 @@
+// check the b[i] is less than a[i] then count++ bcs b[i] is the max points
+// else j++;
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void solve(){
+    int n;
+    cin>>n;
+    vector<int> a(n);
+    vector<int> b(n);
+    for(int i = 0 ;i< n ;i++){
+        cin>>a[i];
+    }
+    for(int i = 0 ;i< n ;i++){
+        cin>>b[i];
+    }
+    
+    long long int count = 0;
+    int j = 0;
+    for(int i = 0 ;i< n ;i++){
+        if(b[i] < a[j])
+            count++;
+        else
+            j++;
+    }
+    
+    cout<<count<<endl;
+}
+
+int main(){
+    
+    int t;
+    cin>>t;
+    while(t--){
+        solve();
+    }
+}
