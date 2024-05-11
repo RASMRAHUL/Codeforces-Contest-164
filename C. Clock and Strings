@@ -18,29 +18,50 @@ C. Clock and Strings
 using namespace std;
 
 void solve(){
-  string s;
-  cin>>s;
-  unordered_map<char,int> m;
-  for(char &i : s){
-    m[i]++;
-  }
-  if(m.size() == 1)
+  int a, b, c, d;
+  cin>> a>>b>>c>>d;
+
+    if(a< b)
+        swap(a,b);
+    if(c<d)
+        swap(c,d);
+    
+    bool check1 = true;  // to check left of a 
+    bool check2 = true;  // to check right of a
+
+    // for left of a
+    for(int i = a ; i <= i+11; i++){
+        int t = i%12;
+        if( t== 0)
+            t = 12;
+        if( t== c || t == d)
+        {
+            check1 = false;
+            break;
+        }
+        if(t == b)
+            break;
+    }
+
+    for(int i = a ; i >0 ; i--){
+        if(i == c || i == d)
+        {
+            check2 = false;
+            break;
+        }
+        if(i == b)
+            break;
+    }
+
+    if(!check1 && !check2)
     {
-        cout<<"NO"<<endl;
-        return ;
+        cout<<"YES"<<endl;
     }
     else
     {
-        cout<<"YES"<<endl;
-        for(int i=  1; i< s.size(); i++){
-            if(s[i] != s[i-1])
-            {
-                swap(s[i], s[i-1]);
-                cout<<s<<endl;
-                break;
-            }
-        }
+        cout<<"NO"<<endl;
     }
+
 
     return;
 }
