@@ -1,0 +1,59 @@
+// Simply count the number of consecutive 1's and 0's 
+// check the consecutive 00000....111111.. will occur or not 
+// if so then reduce ans by 1;
+
+
+
+#include<iostream>
+#include<vector>
+#include<string>
+#include<limits>
+#include<stack>
+#include<unordered_map>
+#include<map>
+#include<unordered_set>
+#include<set>
+#include<algorithm>
+
+using namespace std;
+
+void solve(){
+  string s;
+  cin>>s;
+  int n = s.length();
+  int ans = 0;
+  int flag = false;
+  int i = 0;
+  while(i < n){
+    if(s[i] == '0'){
+        ans++;
+        while(i < n && s[i] == '0')
+            i++;
+        
+        if(i != n)
+            flag = true;
+    }
+    else if(s[i] == '1')
+    {
+        ans++;
+        while(i < n && s[i] == '1')
+        i++;
+
+    }
+  }
+
+  if(flag)
+    ans--;
+
+    cout<<ans<<endl;
+
+    return;
+}
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        solve();
+    }
+}
